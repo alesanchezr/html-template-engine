@@ -6,7 +6,7 @@ module.exports = {
 		publicPath:'/dist',
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'html-template-engine.js',
-	    libraryTarget: 'var',
+	    libraryTarget: 'umd',
 	    library: 'HTMLTemplateEngine'
 	},
 	devtool: "source-map",
