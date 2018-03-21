@@ -3,21 +3,29 @@
 Include other HTML files into your code using pure HTML tags, no need to know Javascript (or any other language), [here is the live demo](https://alesanchezr.github.io/html-template-engine/demo/)
 
 ## Instalation
-Using NPM
+- Using NPM
 ```sh
 $ npm install html-template-engine
 ```
-or include the script before your body closing tag
+- Or using a **simple script tag** before your body closing tag and use the **autoload** feature to avoid using any Javascript whatsoever.
 ```html
 <script type="text/javascript" src="html-template-engine.min.js?autoload"></script>
 ```
-Notice the **?autoload** at the end of the script url, [here is the library code](../../tree/master/dist)
+Important! Please notice the **?autoload** at the end of the script url, [here is the library code](../../tree/master/dist)
 
 ## Usage (Remember to install the library first)
 
-On your HTML paste the following code whenever you want to include another template
+On your HTML paste the following code whenever you want to include another html file
 ```html
 <span require-file="./parts/footer.html"></span>
+```
+
+Only for NPM instalations:
+```js
+import TemplateManager from 'html-template-engine';
+
+//if you want to load the templates when the website finishes loading
+window.onload = function(){ TemplateManager.start(); }
 ```
 
 ### Additional Available Params
@@ -34,3 +42,7 @@ On your HTML paste the following code whenever you want to include another templ
         <span require-file="footer.html"></span>
     </body>
 ```
+
+## Author
+
+Alejandro Sanchez: @alesanchezr, alesanchezr.com
