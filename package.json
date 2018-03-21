@@ -1,6 +1,6 @@
 {
   "name": "html-template-engine",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Include other HTML files into your code using pure HTML tags, no need to know Javascript (or any other language).",
   "main": "dist/html-template-engine.js",
   "scripts": {

@@ -3,10 +3,11 @@ var path = require('path');
 module.exports = {
 	entry: './src/index.js',
 	output: {
-
 		publicPath:'/dist',
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'html-template-engine.js'
+		filename: 'html-template-engine.js',
+	    libraryTarget: 'var',
+	    library: 'HTMLTemplateEngine'
 	},
 	devtool: "source-map",
   	devServer: {
