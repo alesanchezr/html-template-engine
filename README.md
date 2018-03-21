@@ -9,9 +9,9 @@ $ npm install html-template-engine
 ```
 or include the script before your body closing tag
 ```html
-<script type="text/javascript" src="html-template-engine.min.js"></script>
+<script type="text/javascript" src="html-template-engine.min.js?autoload"></script>
 ```
-[Here is the library code](../../tree/master/dist)
+Notice the **?autoload** at the end of the script url, [here is the library code](../../tree/master/dist)
 
 ## Usage (Remember to install the library first)
 

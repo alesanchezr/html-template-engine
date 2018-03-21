@@ -81,10 +81,17 @@ let TM = (function(){
 var needsAutoload = function() {
     var scripts = document.querySelectorAll('script');
     var autoload = false;
+    var includedViaScriptTag = false;
     scripts.forEach(function(elm){
-        if(elm.src.indexOf('html-template-engine') !== -1 && elm.src.indexOf('?autoload') !== -1) autoload = true;
+        if(elm.src.indexOf('html-template-engine') !== -1){
+            includedViaScriptTag = true;
+            if(elm.src.indexOf('?autoload') !== -1) autoload = true;
+        } 
     });
-    return autoload;
+    return { autoload: autoload, includedViaScriptTag: includedViaScriptTag };
 };
-if(needsAutoload()) window.onload = TM.start;
+
+const context = needsAutoload();
+if(context.autoload) window.onload = TM.start;
+else if(context.includedViaScriptTag) console.warn("Include ?autoload at the end of the script url if you want to autoload the template parts without using any javascript \n For example: <script type=\"text/javascript\" src=\"html-template-engine.js?autoload\"></script>");
 module.exports = TM;
