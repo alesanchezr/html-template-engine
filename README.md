@@ -1,6 +1,6 @@
 # HTML Template Engine
 
-Include other HTML files into your code using pure HTML tags, no need to know Javascript (or any other language).
+Include other HTML files into your code using pure HTML tags, no need to know Javascript (or any other language), [here is the live demo](https://alesanchezr.github.io/html-template-engine/demo/)
 
 ## Instalation
 Using NPM
@@ -11,6 +11,7 @@ or include the script before your body closing tag
 ```html
 <script type="text/javascript" src="html-template-engine.min.js"></script>
 ```
+[Here is the library code](/tree/master/dist)
 
 ## Usage (Remember to install the library first)
 
