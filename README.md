@@ -5,7 +5,7 @@ Include other HTML files into your code using pure HTML tags, no need to know Ja
 ## Instalation
 - Using NPM
 ```sh
-$ npm install html-template-engine
+$ npm install html-template-engine --save
 ```
 - Or using a **simple script tag** before your body closing tag and use the **autoload** feature to avoid using any Javascript whatsoever.
 ```html
