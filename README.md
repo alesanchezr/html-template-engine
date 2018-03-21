@@ -1,10 +1,9 @@
-# HTML Template Engine
+# HTML Template Engine [(live demo)](https://alesanchezr.github.io/html-template-engine/demo/)
 
 Include other HTML files into your website by typing:
 ```html
 <span require-file="./parts/footer.html"></span>
 ```
-[Here is the live demo](https://alesanchezr.github.io/html-template-engine/demo/)
 
 ## Instalation
 - Using NPM
