@@ -11,6 +11,7 @@ const TM = (function(){
             } 
             else value = property;
             
+            if(value === "false") value = false;
             if(typeof(value)!==undefined && value) this[property] = value;
         }
     };
@@ -24,6 +25,9 @@ const TM = (function(){
     theObject.loadPieces = function(pieces, newSettings){
         
         loadSettings(newSettings);
+        
+        if(settings.logRequests && pieces.length === 0) console.warn("No template parts were found or loaded, make sure you are using <span> tags with the 'require-file' attribute");
+        
         pieces.forEach((piece)=>{
             getTemplate(piece.filePath, function(fileContent){
                 if(typeof(piece.elementId) !== 'undefined') document.querySelector(piece.elementId).innerHTML = fileContent; 
