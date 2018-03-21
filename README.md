@@ -20,7 +20,7 @@ On your HTML paste the following code whenever you want to include another html 
 <span require-file="./parts/footer.html"></span>
 ```
 
-Only for NPM instalations:
+Only for NPM installations:
 ```js
 import TemplateManager from 'html-template-engine';
 
