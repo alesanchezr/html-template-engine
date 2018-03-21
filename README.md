@@ -11,7 +11,7 @@ or include the script before your body closing tag
 ```html
 <script type="text/javascript" src="html-template-engine.min.js"></script>
 ```
-[Here is the library code](/tree/master/dist)
+[Here is the library code](/alesanchezr/html-template-engine/tree/master/dist)
 
 ## Usage (Remember to install the library first)
 
