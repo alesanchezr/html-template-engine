@@ -1,6 +1,10 @@
 # HTML Template Engine
 
-Include other HTML files into your code using pure HTML tags, no need to know Javascript (or any other language), [here is the live demo](https://alesanchezr.github.io/html-template-engine/demo/)
+Include other HTML files into your code using pure HTML tags, no need to know Javascript (or any other language), [here is the live demo](https://alesanchezr.github.io/html-template-engine/demo/), just do:
+```html
+<!-- Include other html files into your own -->
+<span require-file="./parts/footer.html"></span>
+```
 
 ## Instalation
 - Using NPM
@@ -17,7 +21,11 @@ Important! Please notice the **?autoload** at the end of the script url, [here i
 
 On your HTML paste the following code whenever you want to include another html file
 ```html
+<!-- Include other html files into your own -->
 <span require-file="./parts/footer.html"></span>
+
+<!-- You can also include svg files -->
+<span require-file="./parts/images/name.svg"></span>
 ```
 
 Only for NPM instalations:
@@ -43,6 +51,6 @@ window.onload = function(){ TemplateManager.start(); }
     </body>
 ```
 
-## Author
-
-Alejandro Sanchez: @alesanchezr, alesanchezr.com
+## Authors
+| ![Alejandro Sanchez](https://www.gravatar.com/avatar/92dc7ea3850dea745ac8a4932583827d?s=20) | Alejandro Sanchez | [@alesanchezr](https://twitter.com) | [alesanchezr.com](https://alesanchezr.com) |
+|---------------------------------------------------------------------------------------------|-------------------|-------------------------------------|--------|
