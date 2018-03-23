@@ -1,6 +1,6 @@
-# HTML Template Engine
+# HTML Template Engine [(live demo)](https://alesanchezr.github.io/html-template-engine/demo/)
 
-Include other HTML files into your code using pure HTML tags, no need to know Javascript (or any other language), [here is the live demo](https://alesanchezr.github.io/html-template-engine/demo/), just do:
+Include other files into your current file:
 ```html
 <!-- Include other html files into your own -->
 <span require-file="./parts/footer.html"></span>
@@ -9,7 +9,7 @@ Include other HTML files into your code using pure HTML tags, no need to know Ja
 ## Instalation
 - Using NPM
 ```sh
-$ npm install html-template-engine
+$ npm install html-template-engine --save
 ```
 - Or using a **simple script tag** before your body closing tag and use the **autoload** feature to avoid using any Javascript whatsoever.
 ```html
@@ -28,7 +28,7 @@ On your HTML paste the following code whenever you want to include another html 
 <span require-file="./parts/images/name.svg"></span>
 ```
 
-Only for NPM instalations:
+Only for NPM installations:
 ```js
 import TemplateManager from 'html-template-engine';
 
