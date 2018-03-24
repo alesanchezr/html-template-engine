@@ -3,6 +3,7 @@ let TM = (function(){
     var theObject = {};
     theObject.settings = {
         basePath: '',
+        selector: 'span[require-file]',
         logRequests: false,
         windowExport: false,
         loadProperty: function(property,fromObject){
@@ -23,25 +24,45 @@ let TM = (function(){
         theObject.settings.loadProperty('logRequests',newSettings);
         theObject.settings.loadProperty('windowExport',newSettings);
     }
+
+    function getPieces(cssSelector, parent){
+        
+        if(typeof parent === 'undefined') parent = document;
+        
+        let pieces = parent.querySelectorAll(cssSelector);
+        let newPieces = [];
+        pieces.forEach(function(elm){
+           newPieces.push({ element: elm, filePath: elm.getAttribute('require-file')});
+        });
+        return newPieces;
+    }
     
     theObject.loadPieces = function(pieces, newSettings){
         
-        loadSettings(newSettings);
+        if(!Array.isArray(pieces) && typeof pieces === 'object') pieces = [pieces];
         
-        if(theObject.settings.logRequests && pieces.length === 0) console.warn("No template parts were found or loaded, make sure you are using <span> tags with the 'require-file' attribute");
+        if(typeof newSettings !== 'undefined') loadSettings(newSettings);
         
         pieces.forEach((piece)=>{
             getTemplate(piece.filePath, function(fileContent){
-                if(typeof(piece.elementId) !== 'undefined') document.querySelector(piece.elementId).innerHTML = fileContent; 
-                else if(typeof(piece.element) !== 'undefined') piece.element.innerHTML = fileContent;
+                if(typeof(piece.elementId) !== 'undefined'){
+                    let element = document.querySelector(piece.elementId);
+                    element.innerHTML = fileContent;
+                    let nestedPieces = getPieces(theObject.settings.selector, element);
+                    theObject.loadPieces(nestedPieces);
+                } 
+                else if(typeof(piece.element) !== 'undefined'){
+                    piece.element.innerHTML = fileContent;
+                    let nestedPieces = getPieces(theObject.settings.selector, piece.element);
+                    theObject.loadPieces(nestedPieces);
+                }
                 else console.error('Error loading the template part: ', piece);
             });
         });
     }
     
-    
-    function getTemplate(path, successCallback)
-    {
+    function getTemplate(path, successCallback){
+        
         path = theObject.settings.basePath+path;
         var ajax = new XMLHttpRequest();
         ajax.open("GET", path, true);
@@ -60,21 +81,23 @@ let TM = (function(){
     }
     
     theObject.start = function(){
-            
-        let pieces = document.querySelectorAll('span[require-file]');
-        let newPieces = [];
-        pieces.forEach(function(elm){
-           newPieces.push({ element: elm, filePath: elm.getAttribute('require-file')});
-        });
         
         const body = document.querySelector('body');
         const settings = {
+            selector: 'span[require-file]',
             basePath: body.getAttribute('base-template-path'),
             logRequests: body.getAttribute('log-template-requests')
         }
         
+        let newPieces = getPieces(settings.selector);
+        
+        if(settings.logRequests && newPieces.length === 0) 
+            console.warn("No template parts were found or loaded, make sure you are using <span> tags with the 'require-file' attribute");
+        
         theObject.loadPieces(newPieces, settings);
     }
+    
+    
     return theObject;
 })();
 
