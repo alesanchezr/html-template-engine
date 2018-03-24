@@ -19,7 +19,7 @@ Important! Please notice the **?autoload** at the end of the script url, [here i
 
 ## Usage (Remember to install the library first)
 
-On your HTML paste the following code whenever you want to include another html file
+On your HTML paste the following code whenever you want to include another html file (nested calls are supported since version 0.0.5)
 ```html
 <!-- Include other html files into your own -->
 <span require-file="./parts/footer.html"></span>
