@@ -13,7 +13,7 @@ $ npm install html-template-engine --save
 ```
 - Or using a **simple script tag** before your body closing tag and use the **autoload** feature to avoid using any Javascript whatsoever.
 ```html
-<script type="text/javascript" src="html-template-engine.min.js?autoload"></script>
+<script type="text/javascript" src="https://rawgit.com/alesanchezr/html-template-engine/master/dist/html-template-engine.js?autoload"></script>
 ```
 Important! Please notice the **?autoload** at the end of the script url, [here is the library code](../../tree/master/dist)
 
